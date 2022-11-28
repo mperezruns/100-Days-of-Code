@@ -8,15 +8,22 @@ villain = ["rhino", "scorpion", "vulture", "chameleon", "kraven", "electro", "my
 #### Choose a Random Word (Variable)
 chosen_villain = random.choice(villain)
 
-# Testing
-#print(chosen_villain)
 
-# Asking a user to guess a letter and assign their answer to a vairable
-guess = input("Guess a letter:").lower()
+# Step 2 - Displaying the blank lines for the chosen word
+#Testing code
+print(f'Pssst, the solution is {chosen_villain}.')
 
-# Check if the letter the user guessed (guess)
-for letter in chosen_villain:
+display = []
+word_length = len(chosen_villain)
+for _ in range(word_length):
+    display += "_"
+print(display)
+
+guess = input("Guess a letter: ").lower()
+
+for position in range(word_length):
+    letter = chosen_villain[position]
     if letter == guess:
-        print("Correct")
-    else:
-        print("Wrong")
+        display[position] = letter
+
+print(display)
